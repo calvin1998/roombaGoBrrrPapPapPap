@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libroomba_library.so -o /home/rsa/catkin_ws/devel/lib/libroomba_library.so CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o 
