@@ -13,7 +13,7 @@
 
 class ARDetector {
     private:
-        ros::Subscriber cameraSub;//subscribes to camera images
+        image_transport::Subscriber cameraSub;//subscribes to camera images
         ros::Publisher markerPub;//publishes marker present?
 
     public:
