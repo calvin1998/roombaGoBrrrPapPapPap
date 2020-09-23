@@ -6,6 +6,8 @@
 
 #include <sensor_msgs/Image.h>
 
+#include <image_transport/image_transport.h>
+
 #include <opencv2/aruco.hpp>
 
 
@@ -17,6 +19,7 @@ class ARDetector {
     public:
         ARDetector();
         void startup();
+        void imageCallback(const sensor_msgs::ImageConstPtr& msg);
 };
 
 #endif

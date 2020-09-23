@@ -3,6 +3,15 @@
 
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /home/rsa/catkin_ws/src/roomba/include/roomba/ar_detector.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /home/rsa/catkin_ws/src/roomba/src/ar_detector.cpp
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/camera_publisher.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/camera_subscriber.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/exception.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/image_transport.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/loader_fwds.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/publisher.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/single_subscriber_publisher.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/subscriber.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/image_transport/transport_hints.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/ros/assert.h
@@ -59,7 +68,9 @@ roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/inc
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/sensor_msgs/CameraInfo.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/sensor_msgs/Image.h
+roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h

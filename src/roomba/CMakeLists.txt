@@ -10,6 +10,7 @@ project(roomba)
 find_package(catkin REQUIRED COMPONENTS
   roscpp rviz
   std_msgs sensor_msgs
+  image_transport
 )
 
 ## System dependencies are found with CMake's conventions
