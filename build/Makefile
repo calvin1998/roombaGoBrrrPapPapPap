@@ -545,43 +545,43 @@ turtlebot3_msgs_generate_messages_eus/fast:
 .PHONY : turtlebot3_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named subscriber
+# Target rules for targets named turtlebot3_diagnostics
 
 # Build rule for target.
-subscriber: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 subscriber
-.PHONY : subscriber
+turtlebot3_diagnostics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 turtlebot3_diagnostics
+.PHONY : turtlebot3_diagnostics
 
 # fast build rule for target.
-subscriber/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/subscriber.dir/build.make cpp_localiser/CMakeFiles/subscriber.dir/build
-.PHONY : subscriber/fast
+turtlebot3_diagnostics/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build
+.PHONY : turtlebot3_diagnostics/fast
 
 #=============================================================================
-# Target rules for targets named roscpp_generate_messages_cpp
+# Target rules for targets named diagnostic_msgs_generate_messages_nodejs
 
 # Build rule for target.
-roscpp_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
-.PHONY : roscpp_generate_messages_cpp
+diagnostic_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_nodejs
+.PHONY : diagnostic_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make cpp_localiser/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
+diagnostic_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build
+.PHONY : diagnostic_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_cpp
+# Target rules for targets named diagnostic_msgs_generate_messages_lisp
 
 # Build rule for target.
-geometry_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
-.PHONY : geometry_msgs_generate_messages_cpp
+diagnostic_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_lisp
+.PHONY : diagnostic_msgs_generate_messages_lisp
 
 # fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
+diagnostic_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
+.PHONY : diagnostic_msgs_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
@@ -593,7 +593,7 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -606,60 +606,8 @@ geometry_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_lisp
-
-# Build rule for target.
-roscpp_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make cpp_localiser/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_nodejs
-
-# Build rule for target.
-geometry_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_nodejs
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_eus
-
-# Build rule for target.
-roscpp_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/roscpp_generate_messages_eus.dir/build.make cpp_localiser/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_nodejs
-
-# Build rule for target.
-roscpp_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make cpp_localiser/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_eus
@@ -671,7 +619,7 @@ geometry_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_eus/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make cpp_localiser/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -684,8 +632,99 @@ roscpp_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/roscpp_generate_messages_py.dir/build.make cpp_localiser/CMakeFiles/roscpp_generate_messages_py.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_nodejs
+
+# Build rule for target.
+roscpp_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_eus
+
+# Build rule for target.
+roscpp_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_nodejs
+
+# Build rule for target.
+geometry_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_nodejs
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+geometry_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+.PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_lisp
+
+# Build rule for target.
+roscpp_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_eus
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_eus
+.PHONY : diagnostic_msgs_generate_messages_eus
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_eus/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build
+.PHONY : diagnostic_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_cpp
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_cpp
+.PHONY : diagnostic_msgs_generate_messages_cpp
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
+.PHONY : diagnostic_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_py
+
+# Build rule for target.
+sensor_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_cpp
@@ -697,8 +736,47 @@ rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_cpp
+
+# Build rule for target.
+roscpp_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_py
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_py
+.PHONY : diagnostic_msgs_generate_messages_py
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_py/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
+.PHONY : diagnostic_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_cpp
+
+# Build rule for target.
+geometry_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_eus
@@ -710,7 +788,7 @@ rosgraph_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_eus/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -723,47 +801,8 @@ rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_py
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make cpp_localiser/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named publisher
-
-# Build rule for target.
-publisher: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 publisher
-.PHONY : publisher
-
-# fast build rule for target.
-publisher/fast:
-	$(MAKE) -f cpp_localiser/CMakeFiles/publisher.dir/build.make cpp_localiser/CMakeFiles/publisher.dir/build
-.PHONY : publisher/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_nodejs
@@ -779,17 +818,30 @@ sensor_msgs_generate_messages_nodejs/fast:
 .PHONY : sensor_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_lisp
+# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
 
 # Build rule for target.
-diagnostic_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_lisp
-.PHONY : diagnostic_msgs_generate_messages_lisp
+rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
+.PHONY : rosgraph_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-diagnostic_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_lisp/fast
+rosgraph_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_py
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_cpp
@@ -818,58 +870,6 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_py
-
-# Build rule for target.
-sensor_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_cpp
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_cpp
-.PHONY : diagnostic_msgs_generate_messages_cpp
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_eus
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_eus
-.PHONY : diagnostic_msgs_generate_messages_eus
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_eus/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build
-.PHONY : diagnostic_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_nodejs
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_nodejs
-.PHONY : diagnostic_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build
-.PHONY : diagnostic_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -881,32 +881,6 @@ sensor_msgs_generate_messages_lisp: cmake_check_build_system
 sensor_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
 .PHONY : sensor_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_py
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_py
-.PHONY : diagnostic_msgs_generate_messages_py
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_py/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
-.PHONY : diagnostic_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named turtlebot3_diagnostics
-
-# Build rule for target.
-turtlebot3_diagnostics: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 turtlebot3_diagnostics
-.PHONY : turtlebot3_diagnostics
-
-# fast build rule for target.
-turtlebot3_diagnostics/fast:
-	$(MAKE) -f turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build.make turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build
-.PHONY : turtlebot3_diagnostics/fast
 
 #=============================================================================
 # Target rules for targets named turtlebot3_example_genpy
@@ -1912,34 +1886,32 @@ help:
 	@echo "... turtlebot3_msgs_generate_messages_cpp"
 	@echo "... turtlebot3_msgs_generate_messages_lisp"
 	@echo "... turtlebot3_msgs_generate_messages_eus"
-	@echo "... subscriber"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... turtlebot3_diagnostics"
+	@echo "... diagnostic_msgs_generate_messages_nodejs"
+	@echo "... diagnostic_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... diagnostic_msgs_generate_messages_eus"
+	@echo "... diagnostic_msgs_generate_messages_cpp"
+	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... diagnostic_msgs_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... publisher"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... diagnostic_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... diagnostic_msgs_generate_messages_cpp"
-	@echo "... diagnostic_msgs_generate_messages_eus"
-	@echo "... diagnostic_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... diagnostic_msgs_generate_messages_py"
-	@echo "... turtlebot3_diagnostics"
 	@echo "... turtlebot3_example_genpy"
 	@echo "... turtlebot3_example_generate_messages_py"
 	@echo "... turtlebot3_example_gennodejs"
