@@ -3,6 +3,10 @@
 #include <sensor_msgs/image_encodings.h>
 #include <ros/ros.h>
 
+#include <opencv2/opencv.hpp>
+
+#include <iostream>
+
 
 ARDetector::ARDetector() {
 
@@ -24,19 +28,21 @@ void ARDetector::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
     //convert ros image to cv image
     cv_bridge::CvImagePtr cvImagePtr = rosToCvImage(msg);//this pointer is self managed
     //if image conversion failed
-    if (cvImagePtr == NULL) return;//TODO: Any better way to handle failure?
+    if (cvImagePtr == NULL) {
+        std::cout << "Failed to convert image from ROS to OpenCV" << std::endl;
+        return;//TODO: Any better way to handle failure?
+    }
     //else detect markers
-    std::vector<int> markerIds;//index of markers in dictionary
-    std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;//location of corners in (r,c) or (y,x)
     cv::aruco::detectMarkers(cvImagePtr->image, dictionary, markerCorners, markerIds, detectorParams, rejectedCandidates);
-    //TODO: Publish markers from getARMarkerCoords
+    //showImageWithMarkerOverlay(cv->Image);//uncomment if you want to debug/visualise markers
+    //TODO: Publish marker locations with getARMarkerCoords
 }
 
 cv_bridge::CvImagePtr ARDetector::rosToCvImage(const sensor_msgs::ImageConstPtr& msg) {
     cv_bridge::CvImagePtr newCvImagePtr;
     try {
         //TODO: ensure image encoding is correct
-        newCvImagePtr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);//if ros image not modified, toCvShare may be used
+        newCvImagePtr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::RGB8);//if ros image not modified, toCvShare may be used
     } catch (cv_bridge::Exception& e) {
         ROS_ERROR("cv_bridge exception: %s", e.what());
         return NULL;
@@ -47,3 +53,19 @@ cv_bridge::CvImagePtr ARDetector::rosToCvImage(const sensor_msgs::ImageConstPtr&
 mapCoords ARDetector::getARMarkerCoords(markerCoords markerCorners) {
 
 }
+
+void ARDetector::showImageWithMarkerOverlay(cv::Mat inputImage) {
+    cv::Mat outputImage = inputImage.clone();
+    if (outputImage.empty() || markerCorners.size() == 0 || markerIds.size() == 0) {
+        std::cout << "Failed to show image with marker overlay. No image or markers found." << std::endl;
+        return;
+    }
+    //draw markers onto image
+    cv::aruco::drawDetectedMarkers(outputImage, markerCorners, markerIds);
+    //show image with markers
+    cv::imshow("Image with detected markers", outputImage);
+    cv::waitKey(1000);//wait for 1000ms OR keypress before continuing NOTE:Is a blocking activitiy
+    return;
+}
+
+

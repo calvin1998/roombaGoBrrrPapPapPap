@@ -16,8 +16,12 @@ class ARDetector {
     private:
         image_transport::Subscriber cameraSub;//subscribes to camera images
         ros::Publisher markerPub;//publishes marker present?
+        //cv image to ros parameters
         cv::Ptr<cv::aruco::DetectorParameters> detectorParams;
         cv::Ptr<cv::aruco::Dictionary> dictionary;
+        //results of marker detection
+        std::vector<int> markerIds;//index of markers in dictionary
+        markerCoords markerCorners, rejectedCandidates;//location of corners in (r,c) or (y,x)
 
     public:
         ARDetector();
@@ -29,6 +33,8 @@ class ARDetector {
         cv_bridge::CvImagePtr rosToCvImage(const sensor_msgs::ImageConstPtr& msg);
         //gets MAP coordinates of markers from detected AR points
         mapCoords getARMarkerCoords(markerCoords markerCorners);
+        //get image for debug purposes
+        void showImageWithMarkerOverlay(cv::Mat inputImage);//returns copy of image with overlaid markers
 };
 
 #endif

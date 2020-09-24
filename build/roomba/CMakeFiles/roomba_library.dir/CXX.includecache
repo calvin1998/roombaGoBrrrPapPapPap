@@ -35,6 +35,10 @@ sensor_msgs/image_encodings.h
 -
 ros/ros.h
 -
+opencv2/opencv.hpp
+-
+iostream
+-
 
 /opt/ros/melodic/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
