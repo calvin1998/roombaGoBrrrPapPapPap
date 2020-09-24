@@ -1,0 +1,8 @@
+prefix=/home/rsa/catkin_ws/install
+
+Name: comp3431_starter
+Description: Description of comp3431_starter
+Version: 1.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

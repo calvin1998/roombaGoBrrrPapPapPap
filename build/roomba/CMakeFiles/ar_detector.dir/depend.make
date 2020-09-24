@@ -3,6 +3,7 @@
 
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /home/rsa/catkin_ws/src/roomba/include/roomba/ar_detector.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /home/rsa/catkin_ws/src/roomba/src/nodes/ar_detector_node.cpp
+roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/cv_bridge/cv_bridge.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/image_transport/camera_publisher.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/image_transport/camera_subscriber.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/image_transport/exception.h
@@ -69,8 +70,10 @@ roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/mel
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/sensor_msgs/CameraInfo.h
+roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/sensor_msgs/CompressedImage.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/sensor_msgs/Image.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h
+roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/sensor_msgs/image_encodings.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
