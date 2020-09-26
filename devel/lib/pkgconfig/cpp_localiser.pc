@@ -1,8 +1,0 @@
-prefix=/home/rsa/catkin_ws/devel
-
-Name: cpp_localiser
-Description: Description of cpp_localiser
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
