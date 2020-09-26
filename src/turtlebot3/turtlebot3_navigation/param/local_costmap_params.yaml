@@ -1,0 +1,15 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_footprint
+
+  update_frequency: 2.0 #10.0
+  publish_frequency: 0.5 #10.0
+  transform_tolerance: 1.0 #0.5  
+
+  static_map: false  
+  rolling_window: true
+  width: 3
+  height: 3
+  resolution: 0.01 #0.05
+  inflation_radius: 0.1 #shouldnt exist
+  footprint: [[-0.170, -0.145], [-0.170, 0.145], [0.052, 0.145], [0.052, -0.145]] # shouldnt exist
