@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/rsa/catkin_ws/src/roomba/src/ar_detector.cpp" "/home/rsa/catkin_ws/build/roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o"
+  "/home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp" "/home/rsa/catkin_ws/build/roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

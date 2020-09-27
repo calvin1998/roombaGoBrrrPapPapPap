@@ -251,6 +251,33 @@ src/nodes/ar_detector_node.cpp.s:
 	cd /home/rsa/catkin_ws/build && $(MAKE) -f roomba/CMakeFiles/ar_detector.dir/build.make roomba/CMakeFiles/ar_detector.dir/src/nodes/ar_detector_node.cpp.s
 .PHONY : src/nodes/ar_detector_node.cpp.s
 
+src/pub_sub_topics.o: src/pub_sub_topics.cpp.o
+
+.PHONY : src/pub_sub_topics.o
+
+# target to build an object file
+src/pub_sub_topics.cpp.o:
+	cd /home/rsa/catkin_ws/build && $(MAKE) -f roomba/CMakeFiles/roomba_library.dir/build.make roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o
+.PHONY : src/pub_sub_topics.cpp.o
+
+src/pub_sub_topics.i: src/pub_sub_topics.cpp.i
+
+.PHONY : src/pub_sub_topics.i
+
+# target to preprocess a source file
+src/pub_sub_topics.cpp.i:
+	cd /home/rsa/catkin_ws/build && $(MAKE) -f roomba/CMakeFiles/roomba_library.dir/build.make roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.i
+.PHONY : src/pub_sub_topics.cpp.i
+
+src/pub_sub_topics.s: src/pub_sub_topics.cpp.s
+
+.PHONY : src/pub_sub_topics.s
+
+# target to generate assembly for a file
+src/pub_sub_topics.cpp.s:
+	cd /home/rsa/catkin_ws/build && $(MAKE) -f roomba/CMakeFiles/roomba_library.dir/build.make roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.s
+.PHONY : src/pub_sub_topics.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -272,6 +299,9 @@ help:
 	@echo "... src/nodes/ar_detector_node.o"
 	@echo "... src/nodes/ar_detector_node.i"
 	@echo "... src/nodes/ar_detector_node.s"
+	@echo "... src/pub_sub_topics.o"
+	@echo "... src/pub_sub_topics.i"
+	@echo "... src/pub_sub_topics.s"
 .PHONY : help
 
 

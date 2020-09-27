@@ -40,6 +40,10 @@ opencv2/opencv.hpp
 iostream
 -
 
+/home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp
+roomba/pub_sub_topics.h
+/home/rsa/catkin_ws/src/roomba/src/roomba/pub_sub_topics.h
+
 /opt/ros/melodic/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
 -

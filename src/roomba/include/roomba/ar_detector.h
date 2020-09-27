@@ -14,6 +14,7 @@ typedef std::vector<std::vector<cv::Point2f>> markerCoords;
 
 class ARDetector {
     private:
+        std::string image_topic;
         image_transport::Subscriber cameraSub;//subscribes to camera images
         ros::Publisher markerPub;//publishes marker present?
         //cv image to ros parameters
@@ -25,6 +26,8 @@ class ARDetector {
 
     public:
         ARDetector();
+        //configuration
+        void configure();
         //initialisation of ARDetector node
         void startup();
         //callback to perform when image topic is found
@@ -35,6 +38,7 @@ class ARDetector {
         mapCoords getARMarkerCoords(markerCoords markerCorners);
         //get image for debug purposes
         void showImageWithMarkerOverlay(cv::Mat inputImage);//returns copy of image with overlaid markers
+        void shutdown();
 };
 
 #endif

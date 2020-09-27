@@ -81,17 +81,135 @@ roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o.provides: roomba/CMak
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o.provides.build: roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o
 
 
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o: roomba/CMakeFiles/roomba_library.dir/flags.make
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o: /home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rsa/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o"
+	cd /home/rsa/catkin_ws/build/roomba && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o -c /home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp
+
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.i"
+	cd /home/rsa/catkin_ws/build/roomba && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp > CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.i
+
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.s"
+	cd /home/rsa/catkin_ws/build/roomba && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp -o CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.s
+
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.requires:
+
+.PHONY : roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.requires
+
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.provides: roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.requires
+	$(MAKE) -f roomba/CMakeFiles/roomba_library.dir/build.make roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.provides.build
+.PHONY : roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.provides
+
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.provides.build: roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o
+
+
 # Object files for target roomba_library
 roomba_library_OBJECTS = \
-"CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o"
+"CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o" \
+"CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o"
 
 # External object files for target roomba_library
 roomba_library_EXTERNAL_OBJECTS =
 
 /home/rsa/catkin_ws/devel/lib/libroomba_library.so: roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o
 /home/rsa/catkin_ws/devel/lib/libroomba_library.so: roomba/CMakeFiles/roomba_library.dir/build.make
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librviz.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libOgreMain.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libGL.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libGLU.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libinteractive_markers.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/liblaser_geometry.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libresource_retriever.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libtf.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libtf2_ros.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libactionlib.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libtf2.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/liburdf.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librosconsole_bridge.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libcv_bridge.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libimage_transport.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libmessage_filters.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libclass_loader.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/libPocoFoundation.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libdl.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libroscpp.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librosconsole.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libroslib.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librospack.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/librostime.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /opt/ros/melodic/lib/libcpp_common.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_face.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_text.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_video.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
+/home/rsa/catkin_ws/devel/lib/libroomba_library.so: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 /home/rsa/catkin_ws/devel/lib/libroomba_library.so: roomba/CMakeFiles/roomba_library.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rsa/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/rsa/catkin_ws/devel/lib/libroomba_library.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rsa/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library /home/rsa/catkin_ws/devel/lib/libroomba_library.so"
 	cd /home/rsa/catkin_ws/build/roomba && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/roomba_library.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -100,6 +218,7 @@ roomba/CMakeFiles/roomba_library.dir/build: /home/rsa/catkin_ws/devel/lib/libroo
 .PHONY : roomba/CMakeFiles/roomba_library.dir/build
 
 roomba/CMakeFiles/roomba_library.dir/requires: roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o.requires
+roomba/CMakeFiles/roomba_library.dir/requires: roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o.requires
 
 .PHONY : roomba/CMakeFiles/roomba_library.dir/requires
 

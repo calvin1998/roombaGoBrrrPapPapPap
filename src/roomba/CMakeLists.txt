@@ -9,9 +9,9 @@ project(roomba)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp rviz
+  cv_bridge
   std_msgs sensor_msgs
   image_transport
-  cv_bridge
 )
 
 find_package(OpenCV)
@@ -130,6 +130,7 @@ include_directories(include
 
 add_library(roomba_library
     src/ar_detector.cpp
+    src/pub_sub_topics.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -158,6 +159,12 @@ add_executable(ar_detector src/nodes/ar_detector_node.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+target_link_libraries(roomba_library
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+)
+
 
 target_link_libraries(ar_detector
   ${catkin_LIBRARIES}
@@ -206,6 +213,14 @@ target_link_libraries(ar_detector
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+
+## Mark launch files for installation
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  FILES_MATCHING PATTERN "*.launch"
+  PATTERN ".svn" EXCLUDE
+)
+
 
 #############
 ## Testing ##

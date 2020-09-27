@@ -7,16 +7,25 @@
 
 #include <iostream>
 
+#define LOG_START       "ARDetector ::"
+
 
 ARDetector::ARDetector() {
 
 };
 
+void ARDetector::configure() {
+    ros::NodeHandle paramNh("~");
+    image_topic = paramNh.param<std::string>("imageTopic", "image");
+    ROS_INFO("%s Using image topic: %s", LOG_START, image_topic.c_str());
+}
+
+
 void ARDetector::startup() {
     //initialise publishers and subscribers
-    ros::NodeHandle nh;
+    ros::NodeHandle nh("~");
     image_transport::ImageTransport it(nh);
-    cameraSub = it.subscribe(topics::cameraImage, 1, &ARDetector::imageCallback, this);
+    cameraSub = it.subscribe(image_topic, 1, &ARDetector::imageCallback, this);
     //markerPub = //example is nh.advertise<geometry_msgs::Twist >("cmd_vel", 1, false);
     //TODO: which opencv params to use?
     detectorParams = cv::aruco::DetectorParameters::create();
@@ -34,7 +43,7 @@ void ARDetector::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
     }
     //else detect markers
     cv::aruco::detectMarkers(cvImagePtr->image, dictionary, markerCorners, markerIds, detectorParams, rejectedCandidates);
-    //showImageWithMarkerOverlay(cv->Image);//uncomment if you want to debug/visualise markers
+    showImageWithMarkerOverlay(cvImagePtr->image);//uncomment if you want to debug/visualise markers
     //TODO: Publish marker locations with getARMarkerCoords
 }
 
@@ -66,6 +75,10 @@ void ARDetector::showImageWithMarkerOverlay(cv::Mat inputImage) {
     cv::imshow("Image with detected markers", outputImage);
     cv::waitKey(1000);//wait for 1000ms OR keypress before continuing NOTE:Is a blocking activitiy
     return;
+}
+
+void ARDetector::shutdown() {
+
 }
 
 

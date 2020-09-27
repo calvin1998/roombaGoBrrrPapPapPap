@@ -79,3 +79,6 @@ roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/inc
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 roomba/CMakeFiles/roomba_library.dir/src/ar_detector.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o: /home/rsa/catkin_ws/src/roomba/include/roomba/pub_sub_topics.h
+roomba/CMakeFiles/roomba_library.dir/src/pub_sub_topics.cpp.o: /home/rsa/catkin_ws/src/roomba/src/pub_sub_topics.cpp
+
