@@ -1,8 +1,0 @@
-prefix=/home/rsa/catkin_ws/devel
-
-Name: roomba
-Description: Description of roomba
-Version: 0.0.0
-Cflags: -I/home/rsa/catkin_ws/src/roomba/include
-Libs: -L${prefix}/lib 
-Requires: 
