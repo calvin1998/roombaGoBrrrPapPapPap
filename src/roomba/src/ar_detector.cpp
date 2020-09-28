@@ -73,13 +73,35 @@ void ARDetector::showImageWithMarkerOverlay(cv::Mat inputImage) {
     cv::namedWindow("Without Marker", cv::WINDOW_AUTOSIZE);
     cv::imshow("Without Marker", inputImage);
 
-    cv::waitKey(0);//wait forever until keypress
+    cv::waitKey(100);
+
+    cv::Mat rejectedImage = inputImage.clone();
+
+    if (rejectedImage.empty()) {
+        std::cout << "Failed to show image with rejected markers. Image is empty." << std::endl;
+        return;
+    }
+
+    if (rejectedCandidates.size() > 0) {
+        cv::namedWindow("Rejected", cv::WINDOW_AUTOSIZE);
+        //draw markers onto image
+        cv::aruco::drawDetectedMarkers(rejectedImage, rejectedCandidates);
+        //show images
+        cv::imshow("Rejected", rejectedImage);
+        cv::waitKey(100);
+    }
 
     cv::Mat outputImage = inputImage.clone();
 
-    if (outputImage.empty() || markerCorners.size() == 0 || markerIds.size() == 0) {
+    if (outputImage.empty()) {
+        std::cout << "Failed to show image with marker overlay. Image is empty." << std::endl;
+        return;
+    }
+
+    if (markerCorners.size() == 0 || markerIds.size() == 0) {
         std::cout << "Failed to show image with marker overlay. No image or markers found." << std::endl;
-        std::cout << "Marker corners detected: " << markerCorners.size() << "\t" << "Marker Ids: " << markerIds.size() << std::endl;
+        std::cout << "Marker corners detected: " << markerCorners.size() << "\tMarker Ids: " << markerIds.size() 
+        << "\tRejected Markers " << rejectedCandidates.size() << std::endl;
         return;
     }
     cv::namedWindow("With Marker", cv::WINDOW_AUTOSIZE);
@@ -87,7 +109,7 @@ void ARDetector::showImageWithMarkerOverlay(cv::Mat inputImage) {
     cv::aruco::drawDetectedMarkers(outputImage, markerCorners, markerIds);
     //show images
     cv::imshow("With Marker", outputImage);
-    cv::waitKey(0);//wait forever until keypress
+    cv::waitKey(100);
     //cv::waitKey;(1000);//wait for 1000ms OR keypress before continuing NOTE:Is a blocking activitiy
     return;
 }
