@@ -30,7 +30,7 @@ void ARDetector::startup() {
     //TODO: which opencv params to use?
     detectorParams = cv::aruco::DetectorParameters::create();
     //TODO: which dictionary do the markers belong to?
-    dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
+    dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_5X5_250);
 }
 
 void ARDetector::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
@@ -41,6 +41,7 @@ void ARDetector::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
         std::cout << "Failed to convert image from ROS to OpenCV" << std::endl;
         return;//TODO: Any better way to handle failure?
     }
+    //std::cout << "M = " << std::endl << cvImagePtr->image << std::endl << std::endl;
     //else detect markers
     cv::aruco::detectMarkers(cvImagePtr->image, dictionary, markerCorners, markerIds, detectorParams, rejectedCandidates);
     showImageWithMarkerOverlay(cvImagePtr->image);//uncomment if you want to debug/visualise markers
@@ -64,16 +65,30 @@ mapCoords ARDetector::getARMarkerCoords(markerCoords markerCorners) {
 }
 
 void ARDetector::showImageWithMarkerOverlay(cv::Mat inputImage) {
-    cv::Mat outputImage = inputImage.clone();
-    if (outputImage.empty() || markerCorners.size() == 0 || markerIds.size() == 0) {
-        std::cout << "Failed to show image with marker overlay. No image or markers found." << std::endl;
+    if (inputImage.empty()) {
+        std::cout << "Input image empty." << std::endl;
         return;
     }
+
+    cv::namedWindow("Without Marker", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Without Marker", inputImage);
+
+    cv::waitKey(0);//wait forever until keypress
+
+    cv::Mat outputImage = inputImage.clone();
+
+    if (outputImage.empty() || markerCorners.size() == 0 || markerIds.size() == 0) {
+        std::cout << "Failed to show image with marker overlay. No image or markers found." << std::endl;
+        std::cout << "Marker corners detected: " << markerCorners.size() << "\t" << "Marker Ids: " << markerIds.size() << std::endl;
+        return;
+    }
+    cv::namedWindow("With Marker", cv::WINDOW_AUTOSIZE);
     //draw markers onto image
     cv::aruco::drawDetectedMarkers(outputImage, markerCorners, markerIds);
-    //show image with markers
-    cv::imshow("Image with detected markers", outputImage);
-    cv::waitKey(1000);//wait for 1000ms OR keypress before continuing NOTE:Is a blocking activitiy
+    //show images
+    cv::imshow("With Marker", outputImage);
+    cv::waitKey(0);//wait forever until keypress
+    //cv::waitKey;(1000);//wait for 1000ms OR keypress before continuing NOTE:Is a blocking activitiy
     return;
 }
 
