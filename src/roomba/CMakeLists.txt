@@ -10,6 +10,8 @@ project(roomba)
 find_package(catkin REQUIRED COMPONENTS
   roscpp rviz
   std_msgs sensor_msgs
+  std_msgs
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -215,3 +217,8 @@ target_link_libraries(ar_detector
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+## Path Creater 
+add_executable(path_creater src/path_creater.cpp)
+add_dependencies(path_creater nav_msgs_generate_messages_cpp)
+target_link_libraries(path_creater ${catkin_LIBRARIES})
