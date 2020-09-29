@@ -23,7 +23,7 @@
 
   <!-- Path Creator -->
   <group ns="Path_Creation">
-    <node pkg="joels_roomba" name="path_creater_node" type="path_creater"/>
+    <node pkg="roomba" name="path_creater_node" type="path_creater"/>
   </group>
 
   <!-- rviz -->
