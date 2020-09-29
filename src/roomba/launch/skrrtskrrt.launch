@@ -17,4 +17,9 @@
   <!-- Frontier -->
   <include file="$(find explore_lite)/launch/explore.launch"></include>
 
+  <!-- Path Creator -->
+   <group ns="Path_Creation">
+        <node pkg="joels_roomba" name="path_creater_node" type="path_creater"/>
+    </group>
+
 </launch>
