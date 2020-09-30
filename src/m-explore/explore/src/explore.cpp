@@ -77,11 +77,11 @@ Explore::Explore()
     marker_array_publisher_ =
         private_nh_.advertise<visualization_msgs::MarkerArray>("frontiers", 10);
   }
+  status_publisher_ = private_nh_.advertise<std_msgs::String>("status", 10);
 
   ROS_INFO("Waiting to connect to move_base server");
   move_base_client_.waitForServer();
   ROS_INFO("Connected to move_base server");
-
   exploring_timer_ =
       relative_nh_.createTimer(ros::Duration(1. / planner_frequency_),
                                [this](const ros::TimerEvent&) { makePlan(); });
@@ -178,6 +178,7 @@ void Explore::visualizeFrontiers(
 
 void Explore::makePlan()
 {
+  publish_status("exploring");
   // find frontiers
   auto pose = costmap_client_.getRobotPose();
   // get frontiers sorted according to cost
@@ -289,10 +290,17 @@ void Explore::stop()
 {
   move_base_client_.cancelAllGoals();
   exploring_timer_.stop();
+  publish_status("stop");
   ROS_INFO("Exploration stopped.");
 }
 
-}  // namespace explore
+void Explore::publish_status(std::string str) {
+  std_msgs::String msg;
+  msg.data = str;
+  status_publisher_.publish(msg);
+} 
+
+} // namespace explore
 
 int main(int argc, char** argv)
 {

@@ -47,7 +47,7 @@
 #include <move_base_msgs/MoveBaseAction.h>
 #include <ros/ros.h>
 #include <visualization_msgs/MarkerArray.h>
-
+#include <std_msgs/String.h>
 #include <explore/costmap_client.h>
 #include <explore/frontier_search.h>
 
@@ -84,10 +84,12 @@ private:
                    const geometry_msgs::Point& frontier_goal);
 
   bool goalOnBlacklist(const geometry_msgs::Point& goal);
+  void publish_status(std::string str); 
 
   ros::NodeHandle private_nh_;
   ros::NodeHandle relative_nh_;
   ros::Publisher marker_array_publisher_;
+  ros::Publisher status_publisher_;
   tf::TransformListener tf_listener_;
 
   Costmap2DClient costmap_client_;

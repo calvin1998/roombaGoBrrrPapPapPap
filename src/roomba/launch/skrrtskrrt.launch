@@ -11,6 +11,8 @@
         <arg name="open_rviz"    value="false" />
   </include>
 
+  <!-- Explorer -->
+  <node pkg="roomba" name="explorer_node" type="explorer" output="screen"/>
 
   <!-- Move base -->
   <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
