@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs sensor_msgs
   std_msgs
   nav_msgs
+  visualization_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -222,3 +223,6 @@ target_link_libraries(ar_detector
 add_executable(path_creater src/path_creater.cpp)
 add_dependencies(path_creater nav_msgs_generate_messages_cpp)
 target_link_libraries(path_creater ${catkin_LIBRARIES})
+
+add_executable(explorer src/explorer.cpp)
+target_link_libraries(explorer ${catkin_LIBRARIES})
