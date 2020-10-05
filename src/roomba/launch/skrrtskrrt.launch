@@ -5,6 +5,19 @@
   <arg name="move_forward_only" default="false"/>
   <arg name="mapping_method"    default="gmapping"/>
 
+  <arg name="in_image_base_topic" default="/camera/rgb/image_raw"/>
+	<arg name="out_image_base_topic" default="/camera/rgb/image_raw/decompressed"/>
+
+	<arg name="marker_size" default="20" />
+	<arg name="max_new_marker_error" default="0.08" />
+	<arg name="max_track_error" default="0.6" />
+        
+	<arg name="cam_image_topic" default="$(arg out_image_base_topic)" />
+	<arg name="cam_info_topic" default="/camera/rgb/camera_info" />    
+	<arg name="output_frame" default="/map" />
+
+  <arg name="num_markers_to_detect" default="3"/>
+
   <!-- gmapping -->
   <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch">
         <arg name="slam_methods" value="$(arg mapping_method)"/>
@@ -27,6 +40,25 @@
   <group ns="Path_Creation">
     <node pkg="roomba" name="path_creater_node" type="path_creater"/>
   </group>
+
+  <!--Image Decompresser-->
+  <node name="image_decompress" pkg="image_transport" type="republish" respawn="false" output="screen" args="compressed in:=$(arg in_image_base_topic) raw out:=$(arg out_image_base_topic)"/>   
+
+  <!-- AR Marker Detecter -->
+  <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen">
+    <param name="marker_size"           type="double" value="$(arg marker_size)" />
+		<param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
+		<param name="max_track_error"       type="double" value="$(arg max_track_error)" />
+		<param name="output_frame"          type="string" value="$(arg output_frame)" />
+
+		<remap from="camera_image"  to="$(arg cam_image_topic)" />
+		<remap from="camera_info"   to="$(arg cam_info_topic)" />
+	</node>
+
+  <!-- AR Marker Publisher / Detection Ended Notifier -->
+  <node name="ar_maker_publisher" pkg="roomba" type="ar_marker_creater">
+		<param name="num_markers" type="int" value="$(arg num_markers_to_detect)"/>
+	</node>
 
   <!-- rviz -->
   <node pkg="rviz" type="rviz" name="rviz" required="true"
