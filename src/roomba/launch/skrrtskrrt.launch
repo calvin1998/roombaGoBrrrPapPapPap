@@ -24,17 +24,20 @@
         <arg name="open_rviz"    value="false" />
   </include>
 
-  <!-- Explorer -->
-  <node pkg="roomba" name="explorer_node" type="explorer" output="screen"/>
-
   <!-- Move base -->
   <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
     <arg name="model" value="$(arg model)" />
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
   </include>
 
+  <!-- Explorer -->
+  <node pkg="roomba" name="explorer_node" type="explorer" output="screen"/>
+
   <!-- Frontier -->
   <include file="$(find explore_lite)/launch/explore.launch"></include>
+
+  <!-- Wall follower-->
+  <include file="$(find comp3431_starter)/launch/wallFollow.launch"></include>
 
   <!-- Path Creator -->
   <group ns="Path_Creation">
