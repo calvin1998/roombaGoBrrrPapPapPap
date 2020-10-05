@@ -5,6 +5,8 @@
 Explorer::Explorer()
   : move_base_client_("move_base")
   , numRetries{0}
+  , arFinished{false}
+  , frontierFinished{false}
 {
   ROS_INFO("Dora the explorer started yall");
 
@@ -40,14 +42,39 @@ Explorer::Explorer()
   // Start subscription to frontier
   ROS_INFO("Subscription started");
   frontierStatusSub = n.subscribe("/explore/status", 1000, &Explorer::handleFrontierStatus, this);
+  arDetectedStatusSub = n.subscribe("/ar_marker_detect_done", 100, &Explorer::handleARFinished, this);
+  wallFollowerPub = n.advertise<std_msgs::String>("cmd", 10);
+}
+
+void Explorer::handleARFinished(const std_msgs::StringConstPtr& str) {
+  if (str->data.compare("done") == 0) {
+    arDetectedStatusSub.shutdown();
+    arFinished = true;
+    
+    if (frontierFinished) {
+      sendToWallFollow("stop");
+      returnToStart(finalGoal);
+    }
+  }
+}
+
+void Explorer::sendToWallFollow(const std::string str) {
+  std_msgs::String msg;
+  msg.data = str;
+  wallFollowerPub.publish(msg);
 }
 
 void Explorer::handleFrontierStatus(const std_msgs::StringConstPtr& str) {
   if (str->data.compare("stop") == 0) {
     ROS_INFO("frotiner stopped buddy");
     frontierStatusSub.shutdown();
-    std::cout << finalGoal.target_pose;
-    returnToStart(finalGoal);
+    frontierFinished = true;
+    if (arFinished) {
+      returnToStart(finalGoal);
+    } else {
+      sendToWallFollow("start");
+    }
+
   } else {
     ROS_INFO("Frontier still running");
   }

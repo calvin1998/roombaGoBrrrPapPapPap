@@ -13,13 +13,20 @@ class Explorer {
     private:
         void returnToStart(move_base_msgs::MoveBaseGoal& goal);
         void handleFrontierStatus(const std_msgs::StringConstPtr& str);
+        void handleARFinished(const std_msgs::StringConstPtr& str);
+        void sendToWallFollow(const std::string str);
 
         ros::Subscriber frontierStatusSub;
+        ros::Subscriber arDetectedStatusSub;
+        ros::Publisher wallFollowerPub;
         move_base_msgs::MoveBaseGoal finalGoal;
         ros::NodeHandle n;
         actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction>
             move_base_client_;
+
         int numRetries;
+        bool arFinished;
+        bool frontierFinished;
 
     public:
         Explorer();
