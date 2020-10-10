@@ -29,8 +29,9 @@ void ARDetector::startup() {
     //markerPub = //example is nh.advertise<geometry_msgs::Twist >("cmd_vel", 1, false);
     //TODO: which opencv params to use?
     detectorParams = cv::aruco::DetectorParameters::create();
+    detectorParams->markerBorderBits = 2;
     //TODO: which dictionary do the markers belong to?
-    dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_5X5_250);
+    dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_5X5_1000);
 }
 
 void ARDetector::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
