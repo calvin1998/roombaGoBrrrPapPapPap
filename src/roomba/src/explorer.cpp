@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include "roomba/explorer.h"
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <math.h>
 
 Explorer::Explorer()
   : move_base_client_("move_base")
@@ -14,7 +15,6 @@ Explorer::Explorer()
   while(!move_base_client_.waitForServer(ros::Duration(5.0))){
     ROS_INFO("Waiting for the move_base action server to come up");
   }
-
 
   // Get initial pose
   nav_msgs::OdometryConstPtr msg = ros::topic::waitForMessage<nav_msgs::Odometry>("/odom", ros::Duration(5.0));
@@ -44,6 +44,7 @@ Explorer::Explorer()
   frontierStatusSub = n.subscribe("/explore/status", 1000, &Explorer::handleFrontierStatus, this);
   arDetectedStatusSub = n.subscribe("/ar_marker_detect_done", 100, &Explorer::handleARFinished, this);
   wallFollowerPub = n.advertise<std_msgs::String>("cmd", 10);
+  moveBaseStatSub = n.subscribe("/move_base/status", 100, &Explorer::whereWeAt, this);
 }
 
 void Explorer::handleARFinished(const std_msgs::StringConstPtr& str) {
@@ -51,10 +52,14 @@ void Explorer::handleARFinished(const std_msgs::StringConstPtr& str) {
     arDetectedStatusSub.shutdown();
     arFinished = true;
     
-    if (frontierFinished) {
-      sendToWallFollow("stop");
-      returnToStart(finalGoal);
-    }
+    // With frontier
+    // if (frontierFinished) {
+    //   sendToWallFollow("stop");
+    //   returnToStart(finalGoal);
+    // }
+
+    // Without frontier
+    returnToStart(finalGoal);
   }
 }
 
@@ -65,39 +70,67 @@ void Explorer::sendToWallFollow(const std::string str) {
 }
 
 void Explorer::handleFrontierStatus(const std_msgs::StringConstPtr& str) {
-  if (str->data.compare("stop") == 0) {
-    ROS_INFO("frotiner stopped buddy");
-    frontierStatusSub.shutdown();
-    frontierFinished = true;
-    if (arFinished) {
-      returnToStart(finalGoal);
-    } else {
-      sendToWallFollow("start");
-    }
+  // if (str->data.compare("stop") == 0) {
+  //   ROS_INFO("frotiner stopped buddy");
+  //   frontierStatusSub.shutdown();
+  //   frontierFinished = true;
+  //   if (arFinished) {
+  //     returnToStart(finalGoal);
+  //   } else {
+  //     sendToWallFollow("start");
+  //   }
 
-  } else {
-    ROS_INFO("Frontier still running");
-  }
+  // } else {
+  //   ROS_INFO("Frontier still running");
+  // }
 }
 
 void Explorer::startup()
 {
   ros::Rate loop_rate(10);
   ros::spin();
-
 }
   
 
 void Explorer::returnToStart(move_base_msgs::MoveBaseGoal& goal) {
-  ROS_INFO("Sending goal");
-  move_base_client_.sendGoal(goal);
-  move_base_client_.waitForResult();
+  // moveBaseStatSub = n.subscribe("/move_base/status", 100, &Explorer::whereWeAt, this);
+  // ROS_INFO("Sending goal");
+  // move_base_client_.sendGoal(goal);
+  // move_base_client_.waitForResult();
 
-  if(move_base_client_.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Returned to startd");
-  else if (numRetries <= 10) {
-    ROS_INFO("ah fuck retrying");
-    returnToStart(goal);
+  // if(move_base_client_.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+  //   ROS_INFO("Returned to start");
+  // } else if (numRetries <= 3) {
+  //   ROS_INFO("retrying...");
+  //   returnToStart(goal);
+  // } else {
+  //   sendToWallFollow("start");
+  // }
+}
+
+void Explorer::whereWeAt(const actionlib_msgs::GoalStatusArray& msg) {
+  sendToWallFollow("start");
+  try {
+    tf::StampedTransform transform;
+    tfListener.lookupTransform("base_link", "map", ros::Time(0), transform);
+    auto x = transform.getOrigin().getX();
+    auto y = transform.getOrigin().getY();
+    auto z = transform.getOrigin().getZ();
+    
+    auto x_diff = fabs(x - finalGoal.target_pose.pose.position.x);
+    auto y_diff = fabs(y - finalGoal.target_pose.pose.position.y);
+    auto z_diff = fabs(z - finalGoal.target_pose.pose.position.z);
+    
+    ROS_INFO("x: %f y: %f z: %f, AR Finished: %d", x_diff, y_diff, z_diff, arFinished);
+
+    if (x_diff < 0.15 && y_diff < 0.15 && arFinished) {
+      ROS_INFO("We are home");
+      sendToWallFollow("stop");
+      move_base_client_.cancelAllGoals();
+      moveBaseStatSub.shutdown();
+    }
+  } catch (tf::TransformException ex){
+    ROS_ERROR("%s",ex.what());
   }
 }
 

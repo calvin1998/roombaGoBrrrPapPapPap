@@ -34,7 +34,7 @@
   <node pkg="roomba" name="explorer_node" type="explorer" output="screen"/>
 
   <!-- Frontier -->
-  <include file="$(find explore_lite)/launch/explore.launch"></include>
+  <!-- <include file="$(find explore_lite)/launch/explore.launch"></include> -->
 
   <!-- Wall follower-->
   <include file="$(find comp3431_starter)/launch/wallFollow.launch"></include>
