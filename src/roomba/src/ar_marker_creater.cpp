@@ -26,7 +26,7 @@ void updateMarkerAtPosition(int pos, geometry_msgs::Pose pose) {
   marker.pose.position.y = (marker.pose.position.y * n + pose.position.y) / (n + 1);
   marker.pose.position.z = (marker.pose.position.z * n + pose.position.z) / (n + 1);
 
-  marker.pose.orientation = pose.orientation;
+  //marker.pose.orientation = pose.orientation;
   markerNumDetect[pos]++;
   
   marker_array.markers[pos] = marker;
@@ -51,15 +51,13 @@ void MarkerRecieved(const ar_track_alvar_msgs::AlvarMarkers::ConstPtr& msg){
     bool existing = false;
     for(int i = 0; i < marker_array.markers.size(); i++){
       visualization_msgs::Marker marker = marker_array.markers[i];
-      if(marker.id == newAlvarMarker.id){
-        //updateMarkerAtPosition(i, newAlvarMarker.pose.pose);
-        existing = true;
-        break;
-      } else if(abs(marker.pose.position.x - newAlvarMarker.pose.pose.position.x) < 0.2 
-                && abs(marker.pose.position.y - newAlvarMarker.pose.pose.position.y) < 0.2){
+      if((marker.id == newAlvarMarker.id) ||
+        (abs(marker.pose.position.x - newAlvarMarker.pose.pose.position.x) < 0.2 
+                && abs(marker.pose.position.y - newAlvarMarker.pose.pose.position.y) < 0.2)) {
         //Check if there is already a marker at that location
-        //if a marker eixistis with a differnet ID then ignore it 
-        //updateMarkerAtPosition(i, newAlvarMarker.pose.pose);
+        //if a marker eixistis with a differnet ID then ignore it
+        if (newAlvarMarker.confidence)
+        updateMarkerAtPosition(i, newAlvarMarker.pose.pose);
         existing = true;
         break;
       }
