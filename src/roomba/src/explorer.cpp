@@ -8,6 +8,8 @@ Explorer::Explorer()
   , numRetries{0}
   , arFinished{false}
   , frontierFinished{false}
+  , numMazeLoops{0}
+  , leftSpawn{false}
 {
   ROS_INFO("Dora the explorer started yall");
 
@@ -43,7 +45,7 @@ Explorer::Explorer()
   ROS_INFO("Subscription started");
   frontierStatusSub = n.subscribe("/explore/status", 1000, &Explorer::handleFrontierStatus, this);
   arDetectedStatusSub = n.subscribe("/ar_marker_detect_done", 100, &Explorer::handleARFinished, this);
-  wallFollowerPub = n.advertise<std_msgs::String>("cmd", 10);
+  wallFollowerPub = n.advertise<std_msgs::String>("/cmd", 10);
   moveBaseStatSub = n.subscribe("/move_base/status", 100, &Explorer::whereWeAt, this);
 }
 
@@ -87,7 +89,9 @@ void Explorer::handleFrontierStatus(const std_msgs::StringConstPtr& str) {
 
 void Explorer::startup()
 {
+  
   ros::Rate loop_rate(10);
+  sendToWallFollow("start");
   ros::spin();
 }
   
@@ -109,7 +113,6 @@ void Explorer::returnToStart(move_base_msgs::MoveBaseGoal& goal) {
 }
 
 void Explorer::whereWeAt(const actionlib_msgs::GoalStatusArray& msg) {
-  sendToWallFollow("start");
   try {
     tf::StampedTransform transform;
     tfListener.lookupTransform("base_link", "odom", ros::Time(0), transform);
@@ -121,13 +124,26 @@ void Explorer::whereWeAt(const actionlib_msgs::GoalStatusArray& msg) {
     auto y_diff = fabs(y - finalGoal.target_pose.pose.position.y);
     auto z_diff = fabs(z - finalGoal.target_pose.pose.position.z);
     
-    ROS_INFO("x: %f y: %f z: %f, AR Finished: %d", x_diff, y_diff, z_diff, arFinished);
+    ROS_INFO("x: %f y: %f z: %f, AR Finished: %d, LeftSpawn %d", x_diff, y_diff, z_diff, arFinished,leftSpawn);
 
-    if (x_diff < 0.15 && y_diff < 0.15 && arFinished) {
-      ROS_INFO("We are home");
-      sendToWallFollow("stop");
-      move_base_client_.cancelAllGoals();
-      moveBaseStatSub.shutdown();
+    if(x_diff > 0.3 && y_diff > 0.3 && leftSpawn == false){
+      ROS_INFO("##### LEFT SPAWN ########");
+      leftSpawn = true;
+    }
+
+    if (x_diff < 0.15 && y_diff < 0.15 && leftSpawn) {
+      
+      numMazeLoops++;
+      ROS_INFO("##### MAZE LOOP %d ########",numMazeLoops);
+      leftSpawn = false;
+      if(arFinished || numMazeLoops > 1){
+        ROS_INFO("We are home");
+        sendToWallFollow("stop");
+        move_base_client_.cancelAllGoals();
+        moveBaseStatSub.shutdown();
+      } else {
+        sendToWallFollow("right");
+      }
     }
   } catch (tf::TransformException ex){
     ROS_ERROR("%s",ex.what());
@@ -141,6 +157,7 @@ int main(int argc, char** argv){
     ros::console::notifyLoggerLevelsChanged();
   }
   Explorer ex;
+  sleep(1);
   ex.startup();
   return 0;
 }

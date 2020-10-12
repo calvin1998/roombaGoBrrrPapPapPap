@@ -18,6 +18,9 @@
 
   <arg name="num_markers_to_detect" default="4"/>
 
+<!-- Wall follower-->
+  <include file="$(find comp3431_starter)/launch/wallFollow.launch"></include>
+
   <!-- gmapping -->
   <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch">
         <arg name="slam_methods" value="$(arg mapping_method)"/>
@@ -36,8 +39,7 @@
   <!-- Frontier -->
   <!-- <include file="$(find explore_lite)/launch/explore.launch"></include> -->
 
-  <!-- Wall follower-->
-  <include file="$(find comp3431_starter)/launch/wallFollow.launch"></include>
+  
 
   <!-- Path Creator -->
   <group ns="Path_Creation">

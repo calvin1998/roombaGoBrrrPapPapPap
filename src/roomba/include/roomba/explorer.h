@@ -32,6 +32,8 @@ class Explorer {
         int numRetries;
         bool arFinished;
         bool frontierFinished;
+        int numMazeLoops;
+        bool leftSpawn;
 
     public:
         Explorer();
