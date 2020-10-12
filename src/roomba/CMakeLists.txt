@@ -13,7 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   nav_msgs
   visualization_msgs
-  tf
+  ar_track_alvar
+  ar_track_alvar_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -216,4 +217,5 @@ add_executable(explorer src/explorer.cpp)
 target_link_libraries(explorer ${catkin_LIBRARIES})
 
 add_executable(ar_marker_creater src/ar_marker_creater.cpp)
+add_dependencies(ar_marker_creater ${catkin_EXPORTED_TARGETS})
 target_link_libraries(ar_marker_creater ${catkin_LIBRARIES})
