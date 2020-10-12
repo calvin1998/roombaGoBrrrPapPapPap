@@ -14,7 +14,7 @@
 #define MIN_APPROACH_DIST   0.15
 #define MAX_APPROACH_DIST   0.50
 
-#define ROBOT_RADIUS        0.17
+#define ROBOT_RADIUS        0.2
 
 #define MAX_SPEED       0.25
 #define MAX_TURN        1.0
