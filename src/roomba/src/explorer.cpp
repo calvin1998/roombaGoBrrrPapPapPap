@@ -112,7 +112,7 @@ void Explorer::whereWeAt(const actionlib_msgs::GoalStatusArray& msg) {
   sendToWallFollow("start");
   try {
     tf::StampedTransform transform;
-    tfListener.lookupTransform("base_link", "map", ros::Time(0), transform);
+    tfListener.lookupTransform("base_link", "odom", ros::Time(0), transform);
     auto x = transform.getOrigin().getX();
     auto y = transform.getOrigin().getY();
     auto z = transform.getOrigin().getZ();
