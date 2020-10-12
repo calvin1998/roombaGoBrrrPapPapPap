@@ -2,6 +2,9 @@
 #include <visualization_msgs/MarkerArray.h>
 #include <std_msgs/String.h>
 #include <vector>
+#include <tf/transform_listener.h>
+
+tf::TransformListener listener;
 
 visualization_msgs::MarkerArray marker_array;
 std::vector<int> markerNumDetect; // number of detections per marker
@@ -11,12 +14,14 @@ ros::Publisher done_pub;
 int num_markers;
 
 void updateMarkerAtPosition(int pos, visualization_msgs::Marker m) {
-  visualization_msgs::Marker marker = marker_array.markers[pos];
+  visualization_msgs::Marker *marker = &marker_array.markers[pos];
   int n = markerNumDetect[pos];
-  marker.pose.position.x = (marker.pose.position.x * n + m.pose.position.x) / (n + 1);
-  marker.pose.position.y = (marker.pose.position.y * n + m.pose.position.y) / (n + 1);
-  marker.pose.position.z = (marker.pose.position.z * n + m.pose.position.z) / (n + 1);
+  marker->pose.position.x = (marker->pose.position.x * n + m.pose.position.x) / (n + 1);
+  marker->pose.position.y = (marker->pose.position.y * n + m.pose.position.y) / (n + 1);
+  marker->pose.position.z = (marker->pose.position.z * n + m.pose.position.z) / (n + 1);
   markerNumDetect[pos]++;
+  ROS_INFO("marker %d updated to %f, %f, %f", pos, marker->pose.position.x, 
+  marker->pose.position.y, marker->pose.position.z);
 }
 
 void MarkerRecieved(const visualization_msgs::Marker::ConstPtr& msg){
@@ -30,10 +35,29 @@ void MarkerRecieved(const visualization_msgs::Marker::ConstPtr& msg){
   m.scale = msg->scale;
   m.color = msg->color;
   m.lifetime = ros::Duration(0); //last forever
-  m.frame_locked = msg->frame_locked;
+  m.frame_locked = false;//keep marker in /map frame
+  //m.frame_locked = msg->frame_locked;
+
+  //Convert m marker into /map frame
+  //create PosedStamp for transform
+  geometry_msgs::PoseStamped pose;
+  pose.pose = m.pose;
+  pose.header = m.header;
+
+  //transformed pose
+  geometry_msgs::PoseStamped trans_pose;
+  std::string to_frame = "/map";
+  try {
+    listener.transformPose(to_frame, pose, trans_pose);
+  } catch(tf::TransformException& ex) {
+    ROS_ERROR_STREAM("Unable to transform object from frame " << pose.header.frame_id << " to " << to_frame << " error is " << ex.what());
+    return;
+  }
+
+  m.pose = trans_pose.pose;
+  m.header = trans_pose.header;
 
   bool existing = false;
-  visualization_msgs::Marker *existingMarker;
   for (int i = 0; i < marker_array.markers.size(); i++) {
     visualization_msgs::Marker marker = marker_array.markers[i];
     if ((marker.ns == m.ns && marker.id == m.id) || 

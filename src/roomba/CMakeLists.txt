@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   nav_msgs
   visualization_msgs
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -119,17 +120,12 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(include
   ${catkin_INCLUDE_DIRS}
-  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/roomba.cpp
 # )
-
-add_library(roomba_library
-    src/ar_detector.cpp
-)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -140,8 +136,6 @@ add_library(roomba_library
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/roomba_node.cpp)
-
-add_executable(ar_detector src/nodes/ar_detector_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -157,12 +151,6 @@ add_executable(ar_detector src/nodes/ar_detector_node.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-
-target_link_libraries(ar_detector
-  ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  roomba_library
-)
 
 #############
 ## Install ##
